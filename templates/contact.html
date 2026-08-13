@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Contact · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Contact{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Contact Us</h1>
+  <p class="lede">Attrition Prediction System — questions, feedback or technical support.</p>
+
+  <form>
+    <fieldset>
+      <legend>Message</legend>
+      <label>Name</label>
+      <input type="text" placeholder="Enter your name">
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email">
+
+      <label>Message</label>
+      <textarea rows="6" placeholder="Enter your message"></textarea>
+    </fieldset>
+
+    <div class="form-actions">
+      <button type="button">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

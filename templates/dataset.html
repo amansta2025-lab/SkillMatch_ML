@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Dataset · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Dataset{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Employee Attrition Dataset</h1>
+  <p class="lede">IBM HR Analytics Employee Attrition &amp; Performance — one row per employee, one label: did they leave.</p>
+
+  <div class="cards">
+    <div class="card">
+      <span class="idx">RECORDS</span>
+      <span class="n">{{ total_employees }}</span>
+      <p>Employee rows in employee_attrition.csv</p>
+    </div>
+    <div class="card">
+      <span class="idx">FEATURES</span>
+      <span class="n">{{ total_features }}</span>
+      <p>Columns, including the Attrition label</p>
+    </div>
+    <div class="card">
+      <span class="idx">MISSING VALUES</span>
+      <span class="n">{{ missing_values }}</span>
+      <p>Cells with no recorded value</p>
+    </div>
+    <div class="card">
+      <span class="idx">DUPLICATE ROWS</span>
+      <span class="n">{{ duplicate_rows }}</span>
+      <p>Exact duplicate employee records</p>
+    </div>
+  </div>
+
+  <h2>Feature groups</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Demographics</h3>
+      <p>Age, Gender, MaritalStatus, DistanceFromHome, Education, EducationField</p>
+    </div>
+    <div class="card">
+      <h3>Role &amp; Department</h3>
+      <p>Department, JobRole, JobLevel, BusinessTravel, OverTime</p>
+    </div>
+    <div class="card">
+      <h3>Compensation</h3>
+      <p>MonthlyIncome, DailyRate, HourlyRate, MonthlyRate, PercentSalaryHike, StockOptionLevel</p>
+    </div>
+    <div class="card">
+      <h3>Satisfaction &amp; Involvement</h3>
+      <p>JobSatisfaction, EnvironmentSatisfaction, RelationshipSatisfaction, JobInvolvement, WorkLifeBalance</p>
+    </div>
+    <div class="card">
+      <h3>Tenure &amp; Experience</h3>
+      <p>TotalWorkingYears, YearsAtCompany, YearsInCurrentRole, YearsSinceLastPromotion, YearsWithCurrManager, NumCompaniesWorked</p>
+    </div>
+    <div class="card">
+      <h3>Label</h3>
+      <p>Attrition — Yes / No, the outcome the models are trained to predict</p>
+    </div>
+  </div>
+
+  <h2>Sample records</h2>
+  <table>
+    <tr>
+      <th>Age</th><th>Department</th><th>Job Role</th><th>Overtime</th><th>Monthly Income</th><th>Years at Co.</th><th>Attrition</th>
+    </tr>
+    {% for row in sample_rows %}
+    <tr>
+      <td class="mono">{{ row.Age }}</td>
+      <td>{{ row.Department }}</td>
+      <td>{{ row.JobRole }}</td>
+      <td>{{ row.OverTime }}</td>
+      <td class="mono">${{ '{:,}'.format(row.MonthlyIncome) }}</td>
+      <td class="mono">{{ row.YearsAtCompany }}</td>
+      <td>
+        {% if row.Attrition == 'Yes' %}
+        <span class="badge leave">Leave</span>
+        {% else %}
+        <span class="badge stay">Stay</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Dataset operations</h2>
+  <div class="buttons">
+    <button>Upload Dataset</button>
+    <button>View Full Dataset</button>
+    <button>Dataset Summary</button>
+  </div>
+</div>
+{% endblock %}

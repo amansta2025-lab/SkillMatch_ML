@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Reports · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Reports{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Attrition Reports</h1>
+  <p class="lede">Export summaries built from employee_attrition.csv and the trained models.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Employee Report</h3>
+      <p>Full record for a single employee, including their computed risk score.</p>
+      <button>Generate Report</button>
+    </div>
+    <div class="card">
+      <h3>Prediction Report</h3>
+      <p>Batch attrition predictions across the current employee roster.</p>
+      <button>Generate Report</button>
+    </div>
+    <div class="card">
+      <h3>Model Report</h3>
+      <p>Accuracy, precision, recall and F1 for every trained classifier.</p>
+      <button>Generate Report</button>
+    </div>
+    <div class="card">
+      <h3>Department Report</h3>
+      <p>Attrition rate, headcount and top risk factors by department.</p>
+      <button>Generate Report</button>
+    </div>
+    <div class="card">
+      <h3>Dataset Report</h3>
+      <p>Data quality summary — record count, feature list, missing and duplicate values.</p>
+      <button>Generate Report</button>
+    </div>
+    <div class="card">
+      <h3>Retention Report</h3>
+      <p>Suggested interventions for employees flagged as high attrition risk.</p>
+      <button>Generate Report</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}ML Models · Attrition Prediction System{% endblock %}
+{% block eyebrow %}ML Models{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Machine Learning Models</h1>
+  <p class="lede">Classifiers trained on the preprocessed employee attrition feature set. Run training to populate the metrics below.</p>
+
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Accuracy</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1 Score</th>
+    </tr>
+    <tr>
+      <td>Logistic Regression</td>
+      <td class="mono">-</td><td class="mono">-</td><td class="mono">-</td><td class="mono">-</td>
+    </tr>
+    <tr>
+      <td>Decision Tree</td>
+      <td class="mono">-</td><td class="mono">-</td><td class="mono">-</td><td class="mono">-</td>
+    </tr>
+    <tr>
+      <td>Random Forest</td>
+      <td class="mono">-</td><td class="mono">-</td><td class="mono">-</td><td class="mono">-</td>
+    </tr>
+    <tr>
+      <td>K-Nearest Neighbors</td>
+      <td class="mono">-</td><td class="mono">-</td><td class="mono">-</td><td class="mono">-</td>
+    </tr>
+    <tr>
+      <td>Support Vector Machine</td>
+      <td class="mono">-</td><td class="mono">-</td><td class="mono">-</td><td class="mono">-</td>
+    </tr>
+    <tr>
+      <td>XGBoost</td>
+      <td class="mono">-</td><td class="mono">-</td><td class="mono">-</td><td class="mono">-</td>
+    </tr>
+  </table>
+
+  <h2>Notes</h2>
+  <ul>
+    <li>Attrition is imbalanced ({{ attrition_rate }}% Yes) — models are evaluated with precision, recall and F1, not accuracy alone.</li>
+    <li>Tree-based models (Random Forest, XGBoost) also surface feature importance for the Reports page.</li>
+    <li>The best-performing model on validation data is used to power the Prediction page.</li>
+  </ul>
+</div>
+{% endblock %}

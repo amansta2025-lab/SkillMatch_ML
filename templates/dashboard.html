@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Attrition Dashboard</h1>
+  <p class="lede">Live read on the workforce from employee_attrition.csv.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total Employees</h3>
+      <span class="n">{{ total_employees }}</span>
+    </div>
+    <div class="card metric-stay">
+      <h3>Retained</h3>
+      <span class="n">{{ total_employees - attrition_count }}</span>
+    </div>
+    <div class="card metric-leave">
+      <h3>Left</h3>
+      <span class="n">{{ attrition_count }}</span>
+    </div>
+    <div class="card">
+      <h3>Attrition Rate</h3>
+      <span class="n">{{ attrition_rate }}%</span>
+    </div>
+  </div>
+
+  <h2>Attrition by Department</h2>
+  <table>
+    <tr>
+      <th>Department</th>
+      <th>Total</th>
+      <th>Left</th>
+      <th>Attrition Rate</th>
+    </tr>
+    {% for d in dept_breakdown %}
+    <tr>
+      <td>{{ d.Department }}</td>
+      <td class="mono">{{ d.total }}</td>
+      <td class="mono">{{ d.left }}</td>
+      <td class="mono">{{ d.rate }}%</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Department Chart</h2>
+  <div class="chart-block">
+    <img src="data:image/png;base64,{{ chart }}" alt="Bar chart of attrition rate by department">
+    <p class="cap">Generated live from the current dataset.</p>
+  </div>
+</div>
+{% endblock %}

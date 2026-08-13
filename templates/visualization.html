@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Visualization · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Visualization{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Data Visualization</h1>
+  <p class="lede">Charts generated live from employee_attrition.csv using Pandas and Matplotlib.</p>
+
+  <h2>Attrition Split</h2>
+  <div class="chart-block">
+    <img src="data:image/png;base64,{{ charts.split }}" alt="Pie chart of attrition split">
+    <p class="cap">{{ attrition_count }} of {{ total_employees }} employees ({{ attrition_rate }}%) left the company.</p>
+  </div>
+
+  <h2>Attrition by Department</h2>
+  <div class="chart-block">
+    <img src="data:image/png;base64,{{ charts.department }}" alt="Bar chart of attrition rate by department">
+    <p class="cap">Department-wise share of employees who left, across {{ departments }} departments.</p>
+  </div>
+
+  <div class="cards" style="margin-top:24px;">
+    <div class="card">
+      <h3>Attrition by Overtime</h3>
+      <div class="chart-block" style="margin-top:0;">
+        <img src="data:image/png;base64,{{ charts.overtime }}" alt="Bar chart of attrition rate by overtime status">
+      </div>
+    </div>
+    <div class="card">
+      <h3>Income vs Attrition</h3>
+      <div class="chart-block" style="margin-top:0;">
+        <img src="data:image/png;base64,{{ charts.income }}" alt="Box plot of monthly income against attrition">
+      </div>
+    </div>
+  </div>
+
+  <h2>Other views in the pipeline</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Age Distribution</h3>
+      <p>Age spread of the workforce, split by attrition outcome.</p>
+    </div>
+    <div class="card">
+      <h3>Job Satisfaction</h3>
+      <p>Satisfaction scores compared across employees who stayed vs left.</p>
+    </div>
+    <div class="card">
+      <h3>Correlation Matrix</h3>
+      <p>Pairwise correlation across numeric fields such as tenure, income and satisfaction.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

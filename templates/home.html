@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block title %}Home · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Overview{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div>
+    <span class="mark">Employee Attrition · Predictive HR Analytics</span>
+    <h1>Know who's likely to walk before they hand in notice.</h1>
+    <p>
+      The system reads 35 fields of academic, role and satisfaction data per
+      employee — from overtime and job involvement to salary hikes and years
+      with a manager — and turns them into an attrition risk score placement
+      officers and HR teams can act on.
+    </p>
+    <div class="buttons">
+      <a href="{{ url_for('prediction') }}" class="btn">Run a Prediction</a>
+      <a href="{{ url_for('dashboard') }}" class="btn secondary">Open Dashboard</a>
+    </div>
+  </div>
+
+  <div class="gauge-wrap">
+    <div class="gauge">
+      <div class="reading">
+        <span class="big">{{ attrition_rate }}%</span>
+        <span class="small">left the company</span>
+      </div>
+    </div>
+    <div class="gauge-caption">{{ attrition_count }} of {{ total_employees }} records in the current dataset</div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div class="stat">
+    <span class="n">{{ total_employees }}</span>
+    <span class="l">Employee records</span>
+  </div>
+  <div class="stat">
+    <span class="n">{{ total_features }}</span>
+    <span class="l">Tracked attributes</span>
+  </div>
+  <div class="stat">
+    <span class="n">{{ departments }}</span>
+    <span class="l">Departments</span>
+  </div>
+  <div class="stat">
+    <span class="n">{{ job_roles }}</span>
+    <span class="l">Job roles</span>
+  </div>
+</div>
+
+<section class="section">
+  <h2>About the system</h2>
+  <p class="sub">
+    Built on the IBM HR Analytics Employee Attrition dataset, the system
+    gives HR teams a working view of who is at risk of leaving, and why —
+    so retention conversations happen before an employee resigns, not after.
+  </p>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <h2>What's inside</h2>
+  <p class="sub">Ten pages, one dataset, end to end.</p>
+
+  <div class="cards">
+    <div class="card">
+      <span class="idx">03</span>
+      <h3>📂 Dataset</h3>
+      <p>Inspect the raw employee records, feature list and data quality.</p>
+    </div>
+    <div class="card">
+      <span class="idx">04</span>
+      <h3>🔧 Preprocessing</h3>
+      <p>Encode categorical fields, clean records and scale numeric features.</p>
+    </div>
+    <div class="card">
+      <span class="idx">05</span>
+      <h3>📊 Visualization</h3>
+      <p>Charts on attrition by department, overtime, income and tenure.</p>
+    </div>
+    <div class="card">
+      <span class="idx">06</span>
+      <h3>🤖 ML Models</h3>
+      <p>Compare classifiers trained to flag attrition risk.</p>
+    </div>
+    <div class="card">
+      <span class="idx">07</span>
+      <h3>🎯 Prediction</h3>
+      <p>Score a single employee's likelihood of leaving.</p>
+    </div>
+    <div class="card">
+      <span class="idx">09</span>
+      <h3>📋 Reports</h3>
+      <p>Generate and export attrition and workforce reports.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section workflow" style="padding-top:0;">
+  <h2>How a record moves through the system</h2>
+  <div class="flow">
+    <div class="flow-step">
+      <span class="step-no">01</span>
+      <h4>Employee Record</h4>
+      <p>Age, role, income, satisfaction scores</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <span class="step-no">02</span>
+      <h4>Preprocessing</h4>
+      <p>Encoding &amp; scaling</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <span class="step-no">03</span>
+      <h4>Model</h4>
+      <p>Trained classifier</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <span class="step-no">04</span>
+      <h4>Risk Score</h4>
+      <p>Stay / leave probability</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <span class="step-no">05</span>
+      <h4>Report</h4>
+      <p>Actionable summary</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to score an employee?</h2>
+  <p>Enter their profile and get an attrition risk read in seconds.</p>
+  <a href="{{ url_for('prediction') }}" class="btn">Predict Attrition</a>
+</section>
+
+{% endblock %}

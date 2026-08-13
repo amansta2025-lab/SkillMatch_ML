@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block title %}Prediction · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Prediction{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Employee Attrition Prediction</h1>
+  <p class="lede">Fill in an employee's profile to get a stay / leave risk read from the trained model.</p>
+
+  <form>
+
+    <fieldset>
+      <legend>Personal</legend>
+      <div class="field-grid">
+        <div>
+          <label>Age</label>
+          <input type="number" min="18" max="60" placeholder="e.g. 34">
+        </div>
+        <div>
+          <label>Gender</label>
+          <select>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <div>
+          <label>Marital Status</label>
+          <select>
+            {% for m in marital_statuses %}<option>{{ m }}</option>{% endfor %}
+          </select>
+        </div>
+        <div>
+          <label>Distance From Home (km)</label>
+          <input type="number" placeholder="e.g. 8">
+        </div>
+        <div>
+          <label>Education Level (1–5)</label>
+          <input type="number" min="1" max="5" placeholder="e.g. 3">
+        </div>
+        <div>
+          <label>Education Field</label>
+          <select>
+            {% for e in education_fields %}<option>{{ e }}</option>{% endfor %}
+          </select>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Role &amp; Department</legend>
+      <div class="field-grid">
+        <div>
+          <label>Department</label>
+          <select>
+            {% for d in dept_options %}<option>{{ d }}</option>{% endfor %}
+          </select>
+        </div>
+        <div>
+          <label>Job Role</label>
+          <select>
+            {% for j in role_options %}<option>{{ j }}</option>{% endfor %}
+          </select>
+        </div>
+        <div>
+          <label>Job Level (1–5)</label>
+          <input type="number" min="1" max="5" placeholder="e.g. 2">
+        </div>
+        <div>
+          <label>Business Travel</label>
+          <select>
+            {% for t in travel_options %}<option>{{ t }}</option>{% endfor %}
+          </select>
+        </div>
+        <div>
+          <label>OverTime</label>
+          <select>
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
+        <div>
+          <label>Number of Companies Worked</label>
+          <input type="number" placeholder="e.g. 2">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Compensation</legend>
+      <div class="field-grid">
+        <div>
+          <label>Monthly Income ($)</label>
+          <input type="number" placeholder="e.g. 5500">
+        </div>
+        <div>
+          <label>Daily Rate</label>
+          <input type="number" placeholder="e.g. 800">
+        </div>
+        <div>
+          <label>Hourly Rate</label>
+          <input type="number" placeholder="e.g. 65">
+        </div>
+        <div>
+          <label>Monthly Rate</label>
+          <input type="number" placeholder="e.g. 14000">
+        </div>
+        <div>
+          <label>Percent Salary Hike (%)</label>
+          <input type="number" placeholder="e.g. 13">
+        </div>
+        <div>
+          <label>Stock Option Level (0–3)</label>
+          <input type="number" min="0" max="3" placeholder="e.g. 1">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Satisfaction &amp; Involvement</legend>
+      <div class="field-grid">
+        <div>
+          <label>Job Satisfaction (1–4)</label>
+          <input type="number" min="1" max="4" placeholder="e.g. 3">
+        </div>
+        <div>
+          <label>Environment Satisfaction (1–4)</label>
+          <input type="number" min="1" max="4" placeholder="e.g. 3">
+        </div>
+        <div>
+          <label>Relationship Satisfaction (1–4)</label>
+          <input type="number" min="1" max="4" placeholder="e.g. 3">
+        </div>
+        <div>
+          <label>Job Involvement (1–4)</label>
+          <input type="number" min="1" max="4" placeholder="e.g. 3">
+        </div>
+        <div>
+          <label>Work-Life Balance (1–4)</label>
+          <input type="number" min="1" max="4" placeholder="e.g. 3">
+        </div>
+        <div>
+          <label>Performance Rating (1–4)</label>
+          <input type="number" min="1" max="4" placeholder="e.g. 3">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tenure &amp; Experience</legend>
+      <div class="field-grid">
+        <div>
+          <label>Total Working Years</label>
+          <input type="number" placeholder="e.g. 10">
+        </div>
+        <div>
+          <label>Years at Company</label>
+          <input type="number" placeholder="e.g. 6">
+        </div>
+        <div>
+          <label>Years in Current Role</label>
+          <input type="number" placeholder="e.g. 3">
+        </div>
+        <div>
+          <label>Years Since Last Promotion</label>
+          <input type="number" placeholder="e.g. 1">
+        </div>
+        <div>
+          <label>Years With Current Manager</label>
+          <input type="number" placeholder="e.g. 4">
+        </div>
+        <div>
+          <label>Training Times Last Year</label>
+          <input type="number" placeholder="e.g. 2">
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-actions">
+      <button type="button">Predict Attrition Risk</button>
+    </div>
+
+  </form>
+</div>
+{% endblock %}

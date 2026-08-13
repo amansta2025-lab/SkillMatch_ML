@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Preprocessing · Attrition Prediction System{% endblock %}
+{% block eyebrow %}Preprocessing{% endblock %}
+
+{% block content %}
+<div class="page">
+  <h1>Data Preprocessing</h1>
+  <p class="lede">Turning 35 raw employee attributes into a clean, model-ready feature set.</p>
+
+  <div class="cards">
+    <div class="card">
+      <span class="idx">01</span>
+      <h3>Constant Columns</h3>
+      <p>Drop EmployeeCount, StandardHours and Over18 — every record shares the same value, so they carry no signal.</p>
+    </div>
+    <div class="card">
+      <span class="idx">02</span>
+      <h3>Missing Values</h3>
+      <p>Check each column for nulls; the current dataset has none, but the pipeline still runs median/mode imputation as a safeguard.</p>
+    </div>
+    <div class="card">
+      <span class="idx">03</span>
+      <h3>Encoding</h3>
+      <p>One-hot encode Department, JobRole, EducationField, MaritalStatus and BusinessTravel; binary-encode Gender and OverTime.</p>
+    </div>
+    <div class="card">
+      <span class="idx">04</span>
+      <h3>Feature Scaling</h3>
+      <p>Standardize numeric fields such as MonthlyIncome, Age and DistanceFromHome so no single scale dominates the model.</p>
+    </div>
+    <div class="card">
+      <span class="idx">05</span>
+      <h3>Class Balance</h3>
+      <p>Attrition is imbalanced ({{ attrition_rate }}% Yes) — the pipeline applies class weighting rather than dropping majority records.</p>
+    </div>
+    <div class="card">
+      <span class="idx">06</span>
+      <h3>Label Encoding</h3>
+      <p>Map the target Attrition column from Yes/No to 1/0 for classification.</p>
+    </div>
+  </div>
+
+  <div class="workflow">
+    <h2>Preprocessing Workflow</h2>
+    <div class="flow">
+      <div class="flow-step"><span class="step-no">01</span><h4>Raw CSV</h4><p>1,470 rows · 35 cols</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span class="step-no">02</span><h4>Drop Constants</h4><p>EmployeeCount, Over18, StandardHours</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span class="step-no">03</span><h4>Encode</h4><p>Categorical → numeric</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span class="step-no">04</span><h4>Scale</h4><p>Standardize numeric fields</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span class="step-no">05</span><h4>Model-Ready Set</h4><p>Train / test split</p></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
