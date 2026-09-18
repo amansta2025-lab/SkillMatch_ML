@@ -1,0 +1,55 @@
+Feature,Importance
+numeric__JobLevel,0.043638315
+categorical__OverTime_No,0.04280557
+numeric__StockOptionLevel,0.041778687
+categorical__OverTime_Yes,0.03962383
+categorical__JobRole_Sales Executive,0.03934748
+numeric__YearsWithCurrManager,0.03102718
+categorical__Department_Sales,0.027383078
+categorical__JobRole_Sales Representative,0.027315747
+categorical__JobRole_Manager,0.026274765
+categorical__BusinessTravel_Travel_Frequently,0.026262589
+numeric__TotalWorkingYears,0.026014825
+numeric__WorkLifeBalance,0.023172412
+numeric__MonthlyIncome,0.02304761
+categorical__JobRole_Research Scientist,0.022897992
+numeric__YearsAtCompany,0.022801494
+numeric__NumCompaniesWorked,0.022677438
+categorical__JobRole_Research Director,0.0223685
+numeric__Age,0.022180403
+categorical__JobRole_Laboratory Technician,0.021208933
+numeric__JobInvolvement,0.021129034
+numeric__YearsSinceLastPromotion,0.020714864
+numeric__JobSatisfaction,0.020310191
+categorical__BusinessTravel_Non-Travel,0.019606516
+categorical__MaritalStatus_Divorced,0.019577134
+numeric__EnvironmentSatisfaction,0.019406281
+categorical__Department_Research & Development,0.018003982
+numeric__YearsInCurrentRole,0.017840382
+categorical__EducationField_Life Sciences,0.017730802
+numeric__DistanceFromHome,0.017490348
+categorical__JobRole_Healthcare Representative,0.017305618
+numeric__DailyRate,0.017116616
+numeric__RelationshipSatisfaction,0.01692238
+numeric__PercentSalaryHike,0.016541379
+categorical__EducationField_Marketing,0.016518144
+categorical__MaritalStatus_Single,0.015790187
+categorical__JobRole_Manufacturing Director,0.015109604
+numeric__HourlyRate,0.014862856
+categorical__EducationField_Medical,0.013802152
+numeric__TrainingTimesLastYear,0.013672106
+numeric__Education,0.013597727
+numeric__MonthlyRate,0.013174933
+categorical__Gender_Female,0.01132472
+categorical__Gender_Male,0.01093262
+categorical__EducationField_Technical Degree,0.010841142
+categorical__MaritalStatus_Married,0.010664505
+categorical__BusinessTravel_Travel_Rarely,0.010333428
+categorical__EducationField_Other,0.00990157
+numeric__PerformanceRating,0.007952034
+numeric__StandardHours,0.0
+numeric__EmployeeCount,0.0
+categorical__EducationField_Human Resources,0.0
+categorical__Department_Human Resources,0.0
+categorical__JobRole_Human Resources,0.0
+categorical__Over18_Y,0.0

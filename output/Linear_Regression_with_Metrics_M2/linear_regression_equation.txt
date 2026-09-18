@@ -1,0 +1,3 @@
+SkillMatch Linear Regression Equation
+==================================================
+MonthlyIncome = -1329.1420 + (-11.7909 × Age) + (3812.6091 × JobLevel) + (58.7377 × TotalWorkingYears) + (6.3278 × YearsAtCompany) + (-8.2397 × YearsInCurrentRole) + (20.5056 × YearsSinceLastPromotion) + (-49.5008 × YearsWithCurrManager) + (15.4588 × NumCompaniesWorked) + (-83.0468 × PerformanceRating) + (8.3992 × PercentSalaryHike)

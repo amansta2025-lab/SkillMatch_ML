@@ -17,11 +17,12 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 # ============================================================
 
 
-DATASET_FOLDER = "C:/Users/AMAN/Documents/Skill_Match/dataset/reordered_raw.csv"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+DATASET_FOLDER = PROJECT_DIR / "dataset"
 
-OUTPUT_FILE =  "C:/Users/AMAN/Documents/Skill_Match/dataset/final_preprocessed.csv"
+OUTPUT_FILE = DATASET_FOLDER / "final_preprocessed.csv"
 
-CLEANED_FILE = "C:/Users/AMAN/Documents/Skill_Match/dataset/cleaned_mean_model_imputed.csv"
+CLEANED_FILE = DATASET_FOLDER / "cleaned_mean_model_imputed.csv"
 
 
 # ============================================================
@@ -96,10 +97,23 @@ print(
 #
 # Therefore, do NOT map Yes/No again.
 
-df[TARGET_COLUMN] = pd.to_numeric(
-    df[TARGET_COLUMN],
-    errors="coerce"
-)
+if not pd.api.types.is_numeric_dtype(df[TARGET_COLUMN]):
+    df[TARGET_COLUMN] = (
+        df[TARGET_COLUMN]
+        .astype(str)
+        .str.strip()
+        .map({
+            "No": 0,
+            "Yes": 1,
+            "0": 0,
+            "1": 1
+        })
+    )
+else:
+    df[TARGET_COLUMN] = pd.to_numeric(
+        df[TARGET_COLUMN],
+        errors="coerce"
+    )
 
 
 # ============================================================

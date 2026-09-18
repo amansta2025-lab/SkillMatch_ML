@@ -1,0 +1,15 @@
+Parameter,Value
+Algorithm,XGBoost Classifier
+Number of Estimators,200
+Maximum Depth,5
+Learning Rate,0.05
+Subsample,0.8
+Column Sample By Tree,0.8
+Minimum Child Weight,3
+Gamma,0
+Reg Alpha,0
+Reg Lambda,1
+Objective,binary:logistic
+Evaluation Metric,logloss
+Scale Pos Weight,5.189473684210526
+Random State,42
